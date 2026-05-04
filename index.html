@@ -100,70 +100,43 @@
 	</footer>
 	</main>
 	<script>
-		function changeSeason(el) {
-		    // 1. 'element' is the <a> tag that was just clicked
-		    // 2. Scoop the href attribute (e.g., "winter")
-		    
-			// Select the background of the page
-			
-			var season = el.getAttribute("href");
-				season = season.toLowerCase();
-				
-		    // 3. Test the scoop!
-		    //alert("The season is: " + season);
-		    
-			const html = document.querySelector("html");
-			const banner = document.querySelector("header > h2");
-			const logo = document.getElementById("logo");
-			const wear = document.getElementById("wear");
+    function changeSeason(el) {
+        var season = el.getAttribute("href").toLowerCase();
+        
+        const html = document.querySelector("html");
+        const banner = document.querySelector("header > h2");
+        const logo = document.getElementById("logo");
+        const wear = document.getElementById("wear");
 
-
-			switch(season){
-
-				case "spring":
-				
-				html.style.backgroundColor = "#2B7129";
-				banner.textContent = "Spring Forward!!!";
-
-				break;
-
-				case "summer":
-				
-				html.style.backgroundColor = "#EBA52B";
-				banner.textContent = "Sun In The Summer!!!";
-
-				break;
-
-
-				case "fall":
-				
-				html.style.backgroundColor = "#A81124";
-				banner.textContent = "Don't Fall!!";
-
-				break;
-
-
-				case "winter":
-				
-				html.style.backgroundColor = "#005393";
-				banner.textContent = "Winter Winning!!!";
-
-				break;
-
-
-
-//extra credit to go back to default
-			}
-
-
-			logo.src = "images/" + season + ".gif";
-			wear.src = "images/" + season + "-wear.jpg";
-
-
-		    // 4. Now you can use that 'season' variable to change pics/colors
-		    console.log("The season is: " + season);
-		}
-	</script>
-	<script src="js/main.js"></script>
+        if (season === "default") {
+            html.style.backgroundColor = "";
+            banner.textContent = "Outfitter for All Seasons!";
+            logo.src = "images/four-seasons.gif";
+            wear.src = "images/300x400.png";
+        } else {
+            switch(season){
+                case "spring":
+                    html.style.backgroundColor = "#2B7129";
+                    banner.textContent = "Spring Forward!!!";
+                    break;
+                case "summer":
+                    html.style.backgroundColor = "#EBA52B";
+                    banner.textContent = "Sun In The Summer!!!";
+                    break;
+                case "fall":
+                    html.style.backgroundColor = "#A81124";
+                    banner.textContent = "Don't Fall!!";
+                    break;
+                case "winter":
+                    html.style.backgroundColor = "#005393";
+                    banner.textContent = "Winter Winning!!!";
+                    break;
+            }
+            logo.src = "images/" + season + ".gif";
+            wear.src = "images/" + season + "-wear.jpg";
+        }
+    }
+</script>
+<script src="js/main.js"></script>
 	</body>
 </html>
